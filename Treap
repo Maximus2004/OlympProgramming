@@ -1,0 +1,44 @@
+#include <iostream>
+using namespace std;
+
+struct Treap {
+	int x;
+	int y;
+	Treap *left;
+	Treap *right;
+};
+
+Treap* merge(Treap *L, Treap *R) {
+	if (L == NULL) return R;
+	if (R == NULL) return L;
+    
+	if (L->y > R->y) {
+		L->right = merge(L->right, R);
+		int x = L->x;
+		int y = L->y;
+		Treap *res = { x, y, L->left, L->right };
+		return res;
+	}
+	else {
+		R->left = merge(L, R->left);
+		return R;
+	}
+
+    /* if (L->y > R->y)
+    {
+        Treap* newR = merge(L->right, R);
+        return Treap(L->x, L->y, L->left, newR);
+    }
+    else
+    {
+        Treap* newL = merge(L, R->left);
+        return Treap(R->x, R->y, newL, R->right);
+    } */
+}
+
+int main() {
+	cout << "Hello";
+	*treap
+	merge()
+	return 0;
+}
